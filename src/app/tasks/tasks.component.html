@@ -1,14 +1,23 @@
-<h1 class="page-header">Lista de Tarefas</h1>
+<h1 class="page-header">List of Tasks</h1>
 
 <div class="well">
   <form (ngSubmit)="createTask()">
     <div class="row">
-      <div class="col-md-10">
-        <input type="text" class="form-control" [(ngModel)]="newTask.title" name="title" placeholder="Digite aqui uma nova tarefa">
+      <div class="col-md-6">
+        <input type="text" class="form-control" [(ngModel)]="newTask.title" name="title" placeholder="Task Name ...">
       </div>
       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Who is responsible?">
+      </div>
+
+      <div class="col-md-2">
+        <input type="datetime-local" class="form-control" name="" id="">
+      </div>
+
+
+      <div class="col-md-2">
         <button class="btn btn-success" type="submit">
-          Adicionar Tarefa
+          Add a task!
         </button>
       </div>
     </div>
@@ -18,23 +27,33 @@
 <table class="table">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Título</th>
-      <th>Ações</th>
+      <th>No.</th>
+      <th>Task</th>
+      <th>Responsible</th>
+      <th>Date</th>
+      <th>Deadline</th>
+      <th>Days</th>
+      <th>Status</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let task of tasks">
       <td>{{ task.id }}</td>
       <td>{{ task.title }}</td>
+      <td>Josue</td>
+      <td> ... </td>
+      <td> ... </td>
+      <td> +10 </td>
+      <td> Pending </td>
       <td>
         <a [routerLink]="['/tasks', task.id]" class="btn btn-info" style="margin-right: 7px">
           <span class="glyphicon glyphicon-info-sign"></span>
-          Detalhes
+          Details
         </a>
         <button class="btn btn-danger" (click)="deleteTask(task)">
           <span class="glyphicon glyphicon-trash"></span>
-          Excluir
+          Remove
         </button>
       </td>
     </tr>

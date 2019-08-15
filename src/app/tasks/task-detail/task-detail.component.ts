@@ -29,8 +29,11 @@ export class TaskDetailComponent implements OnInit, AfterViewInit{
     private formBuilder: FormBuilder
   ){ 
     this.taskDoneOptions = [
-      { value: false, text: "Pendente" },
-      { value: true, text: "Feita" }
+      { value: false, text: "Done" },
+      { value: true, text: "In progress"},
+      { value: true, text: "Pending"},
+      { value: true, text: "Partially Done"},
+      { value: true, text: "Not Done!"}
     ];
 
     this.form = this.formBuilder.group({

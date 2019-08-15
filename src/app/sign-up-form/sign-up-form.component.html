@@ -1,4 +1,4 @@
-<h1 class="page-header">Faça o seu cadastro</h1>
+<h1 class="page-header">Register a new user!</h1>
 
 <div class="jumbotron">
   <div *ngIf="formErrors" class="alert alert-danger">
@@ -13,18 +13,19 @@
   </div>
 
 
+
   <form class="form-horizontal" [formGroup]="form" (ngSubmit)="signUpUser()">
   
     <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('name')">
-      <label for="name" class="col-sm-4 control-label">Nome</label>
+      <label for="name" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="name" formControlName="name">
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('name')"></span>
 
         <div *ngIf="formUtils.showFieldError('name')" class="text-danger">
-          <div *ngIf="form.get('name').errors.required">o nome é obrigatório</div>
-          <div *ngIf="form.get('name').errors.minlength">o nome deve ter no mínimo 5 caracteres</div>
-          <div *ngIf="form.get('name').errors.maxlength">o nome deve ter no máximo 100 caracteres</div>
+          <div *ngIf="form.get('name').errors.required">Username is required!</div>
+          <div *ngIf="form.get('name').errors.minlength">Must have at least 3 characters!</div>
+          <div *ngIf="form.get('name').errors.maxlength">Must not go beyond 100 characters long!</div>
         </div>
       </div>
     </div>
@@ -36,48 +37,48 @@
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('email')"></span>
         
         <div *ngIf="formUtils.showFieldError('email')" class="text-danger">
-          <div *ngIf="form.get('email').errors.required">o email é obrigatório</div>
-          <div *ngIf="form.get('email').errors.email">o email digitado é inválido</div>
+          <div *ngIf="form.get('email').errors.required">Email is required!</div>
+          <div *ngIf="form.get('email').errors.email">Your email is invalid!</div>
         </div>
       </div>
     </div>
   
     <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('password')">
-      <label for="password" class="col-sm-4 control-label">Senha</label>
+      <label for="password" class="col-sm-4 control-label">Password</label>
       <div class="col-sm-4">
         <input type="password" class="form-control" id="password" formControlName="password">
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('password')"></span>
         
         <div *ngIf="formUtils.showFieldError('password')" class="text-danger">
-          <div *ngIf="form.get('password').errors.required">a senha é obrigatória</div>
-          <div *ngIf="form.get('password').errors.minlength">a senha deve ter no mínimo 8 caracteres</div>
+          <div *ngIf="form.get('password').errors.required">Password is required!</div>
+          <div *ngIf="form.get('password').errors.minlength">Must have minimum of 8 characters!</div>
         </div>
       </div>
     </div>
     
     <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('passwordConfirmation')">
-      <label for="passwordConfirmation" class="col-sm-4 control-label">Confirmação de Senha</label>
+      <label for="passwordConfirmation" class="col-sm-4 control-label">Confirm Password</label>
       <div class="col-sm-4">
         <input type="password" class="form-control" id="passwordConfirmation" formControlName="passwordConfirmation">
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('passwordConfirmation')"></span>
         
         <div *ngIf="formUtils.showFieldError('passwordConfirmation')" class="text-danger">
-          <div *ngIf="form.get('passwordConfirmation').errors.required">a confirmação de senha é obrigatória</div>
-          <div *ngIf="form.get('passwordConfirmation').errors.mismatch">a senha e a confirmação de senha não estão combinando</div>
+          <div *ngIf="form.get('passwordConfirmation').errors.required">Confirm Password is required!</div>
+          <div *ngIf="form.get('passwordConfirmation').errors.mismatch">Passwords mismatch! Double check.</div>
         </div>
       </div>
     </div>
   
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
-        <button [disabled]="form.invalid || submitted" type="submit" class="btn btn-primary">Criar Conta</button>
+        <button [disabled]="form.invalid || submitted" type="submit" class="btn btn-primary">Register!</button>
       </div>
     </div>
     
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
-        Se você já possui uma conta, 
-        <a routerLink="/sign-in">clique aqui para entrar</a>
+        If you already have an account, 
+        <a routerLink="/sign-in">sign-in!</a>
       </div>
     </div>
   </form>

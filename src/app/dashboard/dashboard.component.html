@@ -1,17 +1,19 @@
-<h1 class="page-header">Painel de Controle</h1>
+<h1 class="page-header">Administrator Dashboard!</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Tarefa</th>
-      <th>Ações</th>
+      <th>Tasks</th>
+      <th>Responsible</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let task of tasks">
       <td>{{task.title}}</td>
+      <td>Josue</td>
       <td>
-        <a [routerLink]="['/tasks', task.id]" class="btn btn-info">Detalhes</a>
+        <a [routerLink]="['/tasks', task.id]" class="btn btn-info">Details</a>
       </td>
     </tr>
   </tbody>

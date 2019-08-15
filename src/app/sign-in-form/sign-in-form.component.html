@@ -1,10 +1,10 @@
-<h1 class="page-header">Faça o seu Login</h1>
+<h1 class="page-header">Login As Administrator!</h1>
 
 <div class="jumbotron">
   <div *ngIf="formErrors" class="alert alert-danger">
     <strong>
       <span class="glyphicon glyphicon-warning-sign"></span>
-      Ocorreu um erro ao tentar entrar no sistema.
+      Login Failed!
     </strong>
 
     <ul>
@@ -22,34 +22,34 @@
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('email')"></span>
         
         <div *ngIf="formUtils.showFieldError('email')" class="text-danger">
-          <div *ngIf="form.get('email').errors.required">o email é obrigatório</div>
-          <div *ngIf="form.get('email').errors.email">o email digitado é inválido</div>
+          <div *ngIf="form.get('email').errors.required">Email is required!</div>
+          <div *ngIf="form.get('email').errors.email">Email is invalid!</div>
         </div>
       </div>
     </div>
   
     <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('password')">
-      <label for="password" class="col-sm-4 control-label">Senha</label>
+      <label for="password" class="col-sm-4 control-label">Password</label>
       <div class="col-sm-4">
         <input type="password" class="form-control" id="password" formControlName="password">
         <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('password')"></span>
         
         <div *ngIf="formUtils.showFieldError('password')" class="text-danger">
-          <div *ngIf="form.get('password').errors.required">a senha é obrigatória</div>
+          <div *ngIf="form.get('password').errors.required">Password is required!</div>
         </div>
       </div>
     </div>
   
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
-        <button [disabled]="form.invalid || submitted" type="submit" class="btn btn-primary">Fazer Login</button>
+        <button [disabled]="form.invalid || submitted" type="submit" class="btn btn-primary">Login</button>
       </div>
     </div>
     
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
-        Se você não possui uma conta, 
-        <a routerLink="/sign-up">clique aqui</a>
+        If you're not registered, 
+        <a routerLink="/sign-up">Register!</a>
       </div>
     </div>
   </form>

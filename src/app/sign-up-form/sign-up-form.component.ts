@@ -31,7 +31,7 @@ export class SignUpFormComponent {
     this.authService.signUp(this.form.value as User)
       .subscribe(
         () => {
-          alert('Parabéns, sua conta foi criada com sucesso!');
+          alert('A new user is successfully registered!');
           this.router.navigate(['/dashboard']);
           this.formErrors = null;
         },
@@ -41,7 +41,7 @@ export class SignUpFormComponent {
           if( error.status === 422 )
             this.formErrors = JSON.parse(error._body).errors.full_messages;
           else
-            this.formErrors = ["Não foi possível processar a sua solicitação. Por favor, tente mais tarde."]
+            this.formErrors = ["Something went wrong! Registering Failed!"]
         }
       )
   }
@@ -56,7 +56,7 @@ export class SignUpFormComponent {
 
   private setupForm(){
     this.form = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
       passwordConfirmation: [null, [Validators.required]]

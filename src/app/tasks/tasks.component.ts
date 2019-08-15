@@ -20,7 +20,7 @@ export class TasksComponent implements OnInit{
     this.taskService.getAll()
       .subscribe(
         tasks => this.tasks = tasks.sort((a, b) => b.id - a.id),
-        error => alert("Ocorreu um no servidor, tente mais tarde.")
+        error => alert("There was an error. Please try again later!")
       )
   }
   
@@ -28,7 +28,7 @@ export class TasksComponent implements OnInit{
     this.newTask.title = this.newTask.title.trim();
 
     if(!this.newTask.title){
-      alert("A tarefa deve ter um título");
+      alert("A task must have a name!");
     }else{
       this.taskService.create(this.newTask)
         .subscribe(
@@ -36,17 +36,17 @@ export class TasksComponent implements OnInit{
             this.tasks.unshift(task);
             this.newTask = new Task(null, '');
           },
-          () => alert("Ocorreu um no servidor, tente mais tarde.")
+          () => alert("There was an error. Please try again later!")
         )
     }
   }
 
   public deleteTask(task: Task){
-    if ( confirm(`Deseja realmente excluir a tarefa "${task.title}"`) ) {
+    if ( confirm(`Do you really want to delete this task: "${task.title}"`) ) {
       this.taskService.delete(task.id)
         .subscribe(
           () => this.tasks = this.tasks.filter(t => t !== task),
-          () => alert("Ocorreu um no servidor, tente mais tarde.")
+          () => alert("There was an error. Please try again later!")
         )
     }
   }

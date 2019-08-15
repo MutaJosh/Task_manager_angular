@@ -35,11 +35,10 @@ export class SignInFormComponent{
         (error) => {
           this.submitted = false;
 
-          if( error.status === 401 )
-            this.formErrors = JSON.parse(error._body).errors;
-          else
-            this.formErrors = ["Não foi possível processar a sua solicitação. Por favor, tente mais tarde."]
-        }
+          if( error.status === 401 )         
+              this.formErrors = ["Please check your credentials! Email or Password is incorrect!"]
+          
+          }
       )
   }
 
